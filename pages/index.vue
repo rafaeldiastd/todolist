@@ -102,8 +102,8 @@
             <ButtonDefault v-if="task.isEditing" @click.stop="saveTask(task)" texto="Salvar" variant="secondary"
               withIcon icon="save" size="xs" />
            
-            <ButtonDefault @click="editTask(task)" variant="secondary" withIcon icon="edit" size="xs" />
-            <ButtonDefault @click="deleteTask(task.id)" variant="danger" withIcon icon="trash" size="xs" />
+            <ButtonDefault @click.stop="editTask(task)" variant="secondary" withIcon icon="edit" size="xs" />
+            <ButtonDefault @click.stop="deleteTask(task.id)" variant="danger" withIcon icon="trash" size="xs" />
           </div>
         </div>
       </div>
