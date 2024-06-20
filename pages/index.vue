@@ -101,9 +101,8 @@
           <div class="gap-3 col-span-4 sm:col-span-1 flex items-center justify-end py-3">
             <ButtonDefault v-if="task.isEditing" @click.stop="saveTask(task)" texto="Salvar" variant="secondary"
               withIcon icon="save" size="xs" />
-            <ButtonDefault v-if="task.isEditing" @click="closeEdit(task)" variant="secondary" withIcon icon="edit"
-              size="xs" />
-            <ButtonDefault v-else @click="editTask(task)" variant="secondary" withIcon icon="edit" size="xs" />
+           
+            <ButtonDefault @click="editTask(task)" variant="secondary" withIcon icon="edit" size="xs" />
             <ButtonDefault @click="deleteTask(task.id)" variant="danger" withIcon icon="trash" size="xs" />
           </div>
         </div>
