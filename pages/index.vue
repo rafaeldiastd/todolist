@@ -116,7 +116,8 @@
 import ButtonDefault from '@/components/ButtonDefault.vue'
 import { reactive, computed, onBeforeMount, ref } from 'vue';
 
-const supabase = useSupabaseClient()
+const supabase = createClient('process.env.SUPABASE_URL', 'process.env.SUPABASE_KEY')
+
 const { data: { user } } = await supabase.auth.getUser()
 
 
