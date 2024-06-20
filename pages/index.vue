@@ -192,15 +192,13 @@ function closeEdit(task) {
 
 async function editTask(task) {
 
-  this.tasks.forEach(t => {
+ this.tasks.forEach(t => {
     if (t !== task) {
       t.isEditing = false;
     }
   });
 
   task.isEditing = true;
-  console.log(task);
-
   newText.value = task.text
   newStatus.value = task.status
 
