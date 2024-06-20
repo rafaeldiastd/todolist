@@ -17,7 +17,7 @@
 
     </div>
 
-    <div class="flex justify-center items-center gap-5 p-20 text-woodsmoke-50">
+    <div class="flex flex-wrap justify-center items-center gap-5 p-20 text-woodsmoke-50">
       <div class="flex flex-col justify-center items-center gap-2">
         {{ countTasks.Padrão }}
         <PillStatus status="Padrão" />
