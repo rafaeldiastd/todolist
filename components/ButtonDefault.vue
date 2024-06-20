@@ -7,7 +7,7 @@
     variant === 'ghost' ? 'underline decoration-1 border-0 text-woodsmoke-400 hover:text-woodsmoke-50' : '',
 
 
-  size === 'default' ? 'px-6 py-2 text-md min-h-11' : '',
+    size === 'default' ? 'px-6 py-2 text-md min-h-11' : '',
     size === 'xs' ? 'px-4 py-2 text-xs h-fit' : '',
   ]">
 

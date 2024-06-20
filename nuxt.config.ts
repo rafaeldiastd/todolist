@@ -2,9 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  modules: [
-    'nuxt-lucide-icons'
-  ],
+  modules: ['nuxt-lucide-icons', "@nuxtjs/supabase"],
+  supabase: {
+    redirect: false
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
