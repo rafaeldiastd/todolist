@@ -52,7 +52,8 @@
           <option value="Parado">Parado</option>
           <option value="Finalizado">Finalizado</option>
         </select>
-        <ButtonDefault class="col-span-8 sm:col-span-2" texto="Cadastrar" @click="createTask" withIcon icon="save">
+        <ButtonDefault class="col-span-8 sm:col-span-2" texto="Cadastrar" @keypress.enter="createTask"
+          @click="createTask" withIcon icon="save">
         </ButtonDefault>
       </div>
 
@@ -101,7 +102,7 @@
           <div class="gap-3 col-span-4 sm:col-span-1 flex items-center justify-end py-3">
             <ButtonDefault v-if="task.isEditing" @click.stop="saveTask(task)" texto="Salvar" variant="secondary"
               withIcon icon="save" size="xs" />
-           
+
             <ButtonDefault @click.stop="editTask(task)" variant="secondary" withIcon icon="edit" size="xs" />
             <ButtonDefault @click.stop="deleteTask(task.id)" variant="danger" withIcon icon="trash" size="xs" />
           </div>
