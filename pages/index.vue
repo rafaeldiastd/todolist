@@ -26,7 +26,7 @@
 
     <div v-if="user" class="container mx-auto">
       <div class="grid grid-cols-8 gap-3 items-center justify-center p-8">
-        <input type="text" v-model="newText" @keyup.enter="createNewTask" placeholder="Nova tarefa"
+        <input maxlength="100" type="text" v-model="newText" @keyup.enter="createNewTask" placeholder="Nova tarefa"
           class="col-span-8 sm:col-span-4 min-h-11 text-woodsmoke-400 placeholder:text-woodsmoke-400 px-5 py-2 rounded-xl ring-1 ring-woodsmoke-700 font-light bg-woodsmoke-900 focus:outline-none focus:ring-1 focus:ring-woodsmoke-600 focus:invalid:ring-carnation-500" />
         <select v-model="newStatus"
           class="col-span-8 sm:col-span-2 min-h-11 text-woodsmoke-400 px-5 py-2 rounded-xl border-r-[15px] border-transparent ring-1 ring-woodsmoke-700 font-light bg-woodsmoke-900 focus:outline-none focus:ring-1 focus:ring-woodsmoke-600 focus:invalid:ring-carnation-500">
@@ -50,7 +50,8 @@
           task.checked ? 'bg-woodsmoke-975' : 'bg-woodsmoke-900']">
 
           <div v-if="task.isEditing" class="col-span-6 sm:col-span-3 grid grid-cols-6 items-center gap-3">
-            <input type="text" v-model="editText" @keyup.enter="tasksData.saveTask(editText, editStatus, task)"
+            <input maxlength="100" type="text" v-model="editText"
+              @keyup.enter="tasksData.saveTask(editText, editStatus, task)"
               class="col-span-6 sm:col-span-4 text-woodsmoke-400 placeholder:text-woodsmoke-400 px-5 py-2 rounded-xl ring-1 ring-woodsmoke-700 font-light bg-woodsmoke-900 focus:outline-none focus:ring-1 focus:ring-woodsmoke-600 focus:invalid:ring-carnation-500" />
 
             <select v-model="editStatus"
