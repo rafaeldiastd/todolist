@@ -22,7 +22,6 @@ export const tasksStore = defineStore('tasksStore', {
         nome: 'Finalizado',
         quantidade: 0
       }],
-    alert: false
   }),
 
   actions: {
@@ -74,7 +73,6 @@ export const tasksStore = defineStore('tasksStore', {
         ])
         .select()
 
-      this.alert = true
       this.getTasks()
 
     },

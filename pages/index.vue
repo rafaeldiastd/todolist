@@ -45,14 +45,6 @@
           certo? 👀</span>
       </div>
 
-      <div v-if="tasksData.alert">
-        <div class="flex items-center justify-between px-6 py-3 mb-4 rounded bg-woodsmoke-900">
-          <div class="text-woodsmoke-400  font-light text-sm text-center">Uma nova tarefa foi cadastrada com sucesso!
-          </div>
-          <ButtonDefault variant="danger" size="xs" withIcon icon="trash" @click="tasksData.alert = false">
-          </ButtonDefault>
-        </div>
-      </div>
       <div v-for="(task, index) in tasksData.tasks" :key="index">
         <div :class="['grid grid-cols-6 justify-between py-4 px-5 rounded mb-1 min-h-20',
           task.checked ? 'bg-woodsmoke-975' : 'bg-woodsmoke-900']">
