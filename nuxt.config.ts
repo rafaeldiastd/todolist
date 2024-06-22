@@ -2,9 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  modules: ['nuxt-lucide-icons', "@nuxtjs/supabase"],
+  modules: ['nuxt-lucide-icons', "@nuxtjs/supabase", "@pinia/nuxt", 'dayjs-nuxt'],
   supabase: {
-    redirect: false
+    redirectOptions: {
+      login: '/',
+      callback: '/confirm',
+      include: ['/dashboard'],
+      exclude: ['/', '/login'],
+      cookieRedirect: false,
+    }
   },
   postcss: {
     plugins: {
