@@ -46,10 +46,10 @@
       </div>
 
       <div v-for="(task, index) in tasksData.tasks" :key="index">
-        <div :class="['grid grid-cols-6 justify-between py-4 px-5 rounded mb-1 min-h-20',
+        <div :class="['grid grid-cols-8 justify-between py-4 px-5 rounded mb-1 min-h-20',
           task.checked ? 'bg-woodsmoke-975' : 'bg-woodsmoke-900']">
 
-          <div v-if="task.isEditing" class="col-span-6 sm:col-span-3 grid grid-cols-6 items-center gap-3">
+          <div v-if="task.isEditing" class="col-span-8 sm:col-span-4 grid grid-cols-6 items-center gap-3">
             <input maxlength="100" type="text" v-model="editText"
               @keyup.enter="tasksData.saveTask(editText, editStatus, task)"
               class="col-span-6 sm:col-span-4 text-woodsmoke-400 placeholder:text-woodsmoke-400 px-5 py-2 rounded-xl ring-1 ring-woodsmoke-700 font-light bg-woodsmoke-900 focus:outline-none focus:ring-1 focus:ring-woodsmoke-600 focus:invalid:ring-carnation-500" />
@@ -64,28 +64,32 @@
             </select>
           </div>
 
-          <div v-else class="col-span-6 sm:col-span-3 grid items-center gap-3">
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" v-model="task.checked" hidden @change="tasksData.toggleStatus(task.id)" />
-              <div :class="['w-4 h-4 rounded items-center transition-colors duration-200',
+          <div v-else class="grid sm:col-span-4 col-span-8 items-center gap-3">
+            <label class=" items-center grid grid-cols-6 gap-3 cursor-pointer">
+              <input type="checkbox" v-model="task.checked" hidden
+                @change="tasksData.toggleStatus(task.id)" />
+              <div :class="['w-4 h-4 rounded items-center transition-colors duration-200 col-span-1',
                 task.checked ? 'bg-royal-green-500' : 'bg-woodsmoke-600']">
                 <svg v-if="task.checked" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor" class="w-4 h-4 text-royal-green-950">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <div class=" flex items-center justify-center"
+              <div class="flex items-center col-span-5"
                 :class="[task.checked ? 'line-through text-woodsmoke-400' : 'text-woodsmoke-50']">
-                {{ task.text }}<span class="text-xs flex items-center p-2 text-woodsmoke-400"> Criado {{
-                  formatDate(task.created_at) }}</span>
+                {{ task.text }}
               </div>
             </label>
+
           </div>
 
           <PillStatus :status="task.status"
-            class="col-span-2 sm:col-span-2 flex items-center justify-start sm:justify-center" />
+            class="col-span-2 sm:col-span-1 flex items-center justify-start sm:justify-center" />
 
-          <div class="gap-3 col-span-4 sm:col-span-1 flex items-center justify-end py-3">
+          <span class="text-xs flex items-center p-2 col-span-2 sm:col-span-1 text-woodsmoke-400">{{ formatDate(task.created_at)
+            }}</span>
+
+          <div class="gap-3 col-span-4 sm:col-span-2 flex items-center justify-end py-3">
             <ButtonDefault v-if="task.isEditing" @click.stop="tasksData.saveTask(editText, editStatus, task)"
               texto="Salvar" variant="secondary" withIcon icon="save" size="xs" />
 
